@@ -4,4 +4,45 @@
              x:Class="FlapPlathpus.MainPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#028bbf">
+
+             <Grid>
+                  <Image x:Name="Imagemfundo"
+                    Source="fundo.jpg"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill" />
+
+                    <Image x:Name="Imagemperry"
+                    Source="passarinhoquelevainformacoes.png"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    HorizontalOptions="Start" />
+                   
+                    <Image x:Name="Imagemcanocima"
+                    Source="canoprabaixo.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start" />
+                  
+                    <Image x:Name="Imagemcanobaixo"
+                    Source="canodiferente.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="End" />
+                   
+                    <Image  x:Name="ImagemChao"
+                      Source="chao.jpg"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="End"/>
+
+                      <Frame x:Name="acabou"
+                         IsVisible="True"
+                         BackgroundColor="Black" >
+                         <Button
+                              Text="GAME OVER"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center"/>
+                          <Button x:Name="tA"
+                              Text="RETRY"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Fill"/>
+                      </Frame>
+             </Grid>
 </ContentPage>
