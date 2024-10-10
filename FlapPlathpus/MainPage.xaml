@@ -33,7 +33,7 @@
                       VerticalOptions="End"/>
 
                       <Frame x:Name="acabou"
-                         IsVisible="True"
+                         IsVisible="false"
                          BackgroundColor="Black" >
                          <Grid>
                         
