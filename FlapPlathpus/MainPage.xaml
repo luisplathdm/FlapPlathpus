@@ -7,12 +7,12 @@
 
              <Grid>
                   <Image x:Name="Imgfundo"
-                    Source="fundo.jpg"
+                    Source="fundo.png"
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill" />
 
                     <Image x:Name="Imgperry"
-                    Source="passarinhoquelevainformacoes.png"
+                    Source="passaro.png"
                     HeightRequest="50"
                     WidthRequest="50"
                     HorizontalOptions="Start" />

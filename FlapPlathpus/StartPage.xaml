@@ -4,13 +4,62 @@
              x:Class="FlapPlathpus.StartPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#028bbf">
-<Grid>
+   
+    <VerticalStackLayout>
    <Grid>
+      <Image x:Name="BackgroundStart"
+      Source="fundo.png"/>
+     
+      <Grid>
+      <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+      </Grid.RowDefinitions>
     
- 
- 
- 
-   </Grid>
+      <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+      </Grid.ColumnDefinitions>
 
-</Grid>
+      
+      <Label x:Name="LAbelStart"
+      Text="FLAP PLATHPUSS"
+      Grid.Column="1"
+      Grid.Row="1"
+      FontFamily="Pixeled"/>
+      
+      <Button x:Name="StartButton"
+      Text="Start"
+      HeightRequest="100"
+      FontAttributes="Bold"
+      FontFamily="Pixeled"
+      Padding="10"
+      BackgroundColor="Transparent"
+      Grid.Row="2"
+      Grid.Column="1"/>
+      
+      <Button x:Name="CreditsButton"
+      Text="Credits"
+      HeightRequest="100"
+      FontAttributes="Bold"
+      BackgroundColor="Transparent"
+      FontFamily="Pixeled"
+      Padding="10"
+      Grid.Row="3"
+      Grid.Column="1"/>
+         
+      <ImageButton x:Name="SettingsButton"
+      BackgroundColor="Transparent"
+      Source="chao.jpg"
+      Grid.Row="4"
+      Grid.Column="2"/>
+
+      </Grid>
+
+   </Grid>
+   </VerticalStackLayout>
 </ContentPage>
