@@ -6,54 +6,57 @@
              BackgroundColor="#028bbf">
 
              <Grid>
-                  <Image x:Name="Imagemfundo"
+                  <Image x:Name="Imgfundo"
                     Source="fundo.jpg"
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill" />
 
-                    <Image x:Name="Imagemperry"
+                    <Image x:Name="Imgperry"
                     Source="passarinhoquelevainformacoes.png"
                     HeightRequest="50"
                     WidthRequest="50"
                     HorizontalOptions="Start" />
                    
-                    <Image x:Name="Imagemcanocima"
+                    <Image x:Name="Imgcanocima"
                     Source="canoprabaixo.png"
                     HorizontalOptions="End"
+                    WidthRequest="300"
                     VerticalOptions="Start" />
                   
-                    <Image x:Name="Imagemcanobaixo"
+                    <Image x:Name="Imgcanobaixo"
                     Source="canodiferente.png"
+                    WidthRequest="300"
                     HorizontalOptions="End"
                     VerticalOptions="End" />
                    
-                    <Image  x:Name="ImagemChao"
-                      Source="chao.jpg"
-                      HorizontalOptions="Fill"
-                      VerticalOptions="End"/>
+                    <Image  x:Name="ImgChao"
+                     Source="chao.jpg"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="End"/>
 
-                      <Frame x:Name="acabou"
-                         IsVisible="false"
+                      <Frame x:Name="GameOverFrame"
+                         IsVisible="true"
                          BackgroundColor="Black" >
                          <Grid>
                         
-                         <Image x:Name="GameOver"
-                         Source="chao.jpg"
+                         <Label x:Name="GameOver"
+                         Text="GAME OVER"
+                         HeightRequest="300"
                          HorizontalOptions="End"
-                         VerticalOptions="Start"
-                         />
+                         VerticalOptions="Start"/>
                         
                          <Button
                               Text="GAME OVER"
                               HorizontalOptions="Center"
                               VerticalOptions="Center"
-                              HeightRequest="200"
-                              WidthRequest="300"/>
+                              HeightRequest="100"
+                              WidthRequest="130"
+                              BackgroundColor="Black"/>
                           <Button x:Name="tA"
                               Text="RETRY"
-                              HeightRequest="200"
-                              WidthRequest="300"
-                              HorizontalOptions="Center"
+                              HeightRequest="100"
+                              WidthRequest="130"
+                              HorizontalOptions="Start"
                               VerticalOptions="Fill"
                               BackgroundColor="Black"/>
                           </Grid>
