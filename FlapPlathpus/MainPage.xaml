@@ -35,14 +35,28 @@
                       <Frame x:Name="acabou"
                          IsVisible="True"
                          BackgroundColor="Black" >
+                         <Grid>
+                        
+                         <Image x:Name="GameOver"
+                         Source="chao.jpg"
+                         HorizontalOptions="End"
+                         VerticalOptions="Start"
+                         />
+                        
                          <Button
                               Text="GAME OVER"
                               HorizontalOptions="Center"
-                              VerticalOptions="Center"/>
+                              VerticalOptions="Center"
+                              HeightRequest="200"
+                              WidthRequest="300"/>
                           <Button x:Name="tA"
                               Text="RETRY"
+                              HeightRequest="200"
+                              WidthRequest="300"
                               HorizontalOptions="Center"
-                              VerticalOptions="Fill"/>
+                              VerticalOptions="Fill"
+                              BackgroundColor="Black"/>
+                          </Grid>
                       </Frame>
              </Grid>
 </ContentPage>
