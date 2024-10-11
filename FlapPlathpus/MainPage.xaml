@@ -21,6 +21,7 @@
                     Source="canoprabaixo.png"
                     HorizontalOptions="End"
                     WidthRequest="300"
+                    HeightRequest="200"
                     VerticalOptions="Start" />
                   
                     <Image x:Name="Imgcanobaixo"
@@ -35,18 +36,20 @@
                      VerticalOptions="End"/>
 
                       <Frame x:Name="GameOverFrame"
-                         IsVisible="true"
+                         IsVisible="false"
                          BackgroundColor="Black" >
                          <Grid>
                         
                          <Label x:Name="GameOver"
                          Text="GAME OVER"
+                         FontFamily="Pixeled"
                          HeightRequest="300"
                          HorizontalOptions="End"
                          VerticalOptions="Start"/>
                         
                          <Button
                               Text="GAME OVER"
+                              FontFamily="Pixeled"
                               HorizontalOptions="Center"
                               VerticalOptions="Center"
                               HeightRequest="100"
@@ -54,6 +57,7 @@
                               BackgroundColor="Black"/>
                           <Button x:Name="tA"
                               Text="RETRY"
+                              FontFamily="Pixeled"
                               HeightRequest="100"
                               WidthRequest="130"
                               HorizontalOptions="Start"
