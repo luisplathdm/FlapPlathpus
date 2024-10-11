@@ -20,13 +20,14 @@
                     <Image x:Name="Imgcanocima"
                     Source="canoprabaixo.png"
                     HorizontalOptions="End"
-                    WidthRequest="300"
-                    HeightRequest="200"
+                    WidthRequest="100"
+                    HeightRequest="100"
                     VerticalOptions="Start" />
                   
                     <Image x:Name="Imgcanobaixo"
                     Source="canodiferente.png"
-                    WidthRequest="300"
+                    WidthRequest="100"
+                    HeightRequest="100"
                     HorizontalOptions="End"
                     VerticalOptions="End" />
                    
