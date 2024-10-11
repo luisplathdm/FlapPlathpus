@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
 	const int TimeToFrame = 2000; 
 	//tempo de espera dos frames ou fps
     
-	bool isDead = false; 
+	bool isDead = true; 
 	// Óbvio que é quando o passaro cai pelo cano
 
 	double windowHeigth = 0;
@@ -55,23 +55,40 @@ public partial class MainPage : ContentPage
 	async void IntroGravity()
 	{
 		Imgperry.TranslationY += gravity; 
-		if (Imgperry >= h)
-		{
-			Imgperry.TranslationX =0;
-		}
+	//	if (Imgperry >= windowHeigth)
+		//{
+		//	Imgperry.TranslationX =30;
+		//}
 		// translation é a transiçao do eixo Y ou x no caso 
 		//como aumenta é oque vai fazer o pasarinho cair                                     
 	}
+
 //---------------------------------------------------------------------------------------//
     
-	void FloatBird()
+				//void FloatBird()
+				//{
+				//	Imgperry.TranslationY -= 100; 
+				//}
+
+			   // private void ClickedFloatBird(object sender, EventArgs e)
+				//{
+                //FloatBird();
+				//}
+
+//---------------------------------------------------------------------------------------//
+	void OnGameOverClicked (object sender, EventArgs e)
 	{
-		Imgperry.TranslationY -= 100; 
+     GameOverFrame.IsVisible = false;
+	 Initialize();
+	 Drawn();
 	}
 
-	private void ClickedFloatBird(object sender, EventArgs e)
+//---------------------------------------------------------------------------------------//
+
+    void Initialize()
 	{
-      FloatBird();
+		isDead = false;
+		Imgperry.TranslationY = 0;
 	}
 
 //---------------------------------------------------------------------------------------//
@@ -94,15 +111,6 @@ public partial class MainPage : ContentPage
 		}
 	}
 
-//---------------------------------------------------------------------------------------//
-	
-	protected override void OnAppearing()
-	{
-		base.OnAppearing();
-		Drawn();
-		//faz ele rodar de forma sincrona ou junto com a pagina
-	}
-
  //---------------------------------------------------------------------------------------//
     protected override void OnSizeAllocated(double w, double h)
     {
@@ -113,7 +121,7 @@ public partial class MainPage : ContentPage
 		// aqui a gente está definindo as janelas para definir o tamanho depois
     }
 
-    //---------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------//
 }
 
 

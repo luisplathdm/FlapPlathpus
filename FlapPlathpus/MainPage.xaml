@@ -37,18 +37,31 @@
                      VerticalOptions="End"/>
 
                       <Frame x:Name="GameOverFrame"
-                         IsVisible="false"
-                         BackgroundColor="Black">
-                         <Grid>
+                         IsVisible="true"
+                         BackgroundColor="#99000000"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Fill">
+                           
+                            <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+                            </Frame.GestureRecognizers>
                         
-                         <Label x:Name="GameOver"
+                        <Grid>
+                         <Image x:Name="TapStart"
+                         Source="tap.png"
+                         HeightRequest="150"
+                         />
+
+                        
+                      <!--      <Label x:Name="GameOver"
                          Text="GAME OVER"
                          FontFamily="Pixeled"
                          HeightRequest="300"
                          HorizontalOptions="End"
                          VerticalOptions="Start"/>
+
                         
-                         <Button
+                      <Button
                               Text="GAME OVER"
                               FontFamily="Pixeled"
                               HorizontalOptions="Center"
@@ -63,11 +76,11 @@
                               WidthRequest="130"
                               HorizontalOptions="Start"
                               VerticalOptions="Fill"
-                              BackgroundColor="Black"/>
+                              BackgroundColor="Black"/> 
 
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="FloatBird"/>
-                                </Grid.GestureRecognizers>
+                                </Grid.GestureRecognizers> -->
 
                           </Grid>
                       </Frame>
