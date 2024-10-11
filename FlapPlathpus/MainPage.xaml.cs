@@ -92,8 +92,43 @@ public partial class MainPage : ContentPage
      GameOverFrame.IsVisible = false;
 	 Initialize();
 	 Drawn();
-	 GameStarded = true; // aqui quando clicar no frame ele vai definir 
-	                     // o jogo como começando oque possiblta ativar o pulo e clicked do passaro
+	 GameStarded = true; 
+	 // aqui quando clicar no frame ele vai definir 
+	 // o jogo como começando oque possiblta ativar o pulo e clicked do passaro
+	  
+	  if 
+	  (IsColliding(Imgperry, Imgcanobaixo) || IsColliding(Imgperry, Imgcanocima))
+      {
+      isDead = true; // O passarinho morreu
+      GameOver(); // Função para lidar com o Game Over
+      }
+	  await Task.Delay(TimeToFrame);
+	}
+    
+	bool IsColliding(VisualElement element1, VisualElement element2)
+     {
+		if (element1 == null || element2 == null)
+		{
+			// Verifica se os elementos são válidos
+			return false;
+		}
+
+		// Obter os limites (bounding rectangles) dos dois elementos
+		var rect1 = new Rect(element1.X, element1.Y, element1.Width, element1.Height);
+		var rect2 = new Rect(element2.X, element2.Y, element2.Width, element2.Height);
+
+		// Verificar se os dois retângulos se sobrepõem (intersecção)
+		return rect1.IntersectsWith(rect2);
+    }
+//---------------------------------------------------------------------------------------//
+	void GameOver()
+	{
+		// Exibir a tela de "Game Over"
+    GameOverFrame.IsVisible = true;
+
+    // Opcional: Parar o movimento do pássaro e dos canos
+    Imgperry.TranslationY = 0; // Fazer o pássaro "cair" no chão ou parar
+    Fasty = 0; // Parar o movimento dos canos
 	}
 
 //---------------------------------------------------------------------------------------//
