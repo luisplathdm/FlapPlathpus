@@ -55,8 +55,23 @@ public partial class MainPage : ContentPage
 	async void IntroGravity()
 	{
 		Imgperry.TranslationY += gravity; 
+		if (Imgperry >= h)
+		{
+			Imgperry.TranslationX =0;
+		}
 		// translation é a transiçao do eixo Y ou x no caso 
 		//como aumenta é oque vai fazer o pasarinho cair                                     
+	}
+//---------------------------------------------------------------------------------------//
+    
+	void FloatBird()
+	{
+		Imgperry.TranslationY -= 100; 
+	}
+
+	private void ClickedFloatBird(object sender, EventArgs e)
+	{
+      FloatBird();
 	}
 
 //---------------------------------------------------------------------------------------//

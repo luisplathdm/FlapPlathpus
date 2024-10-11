@@ -9,27 +9,27 @@
                   <Image x:Name="Imgfundo"
                     Source="fundo.png"
                     HorizontalOptions="Fill"
-                    VerticalOptions="Fill" />
+                    VerticalOptions="Fill"/>
 
                     <Image x:Name="Imgperry"
                     Source="passaro.png"
                     HeightRequest="50"
                     WidthRequest="50"
-                    HorizontalOptions="Start" />
+                    HorizontalOptions="Start"/>
                    
                     <Image x:Name="Imgcanocima"
                     Source="canoprabaixo.png"
                     HorizontalOptions="End"
-                    WidthRequest="100"
-                    HeightRequest="100"
-                    VerticalOptions="Start" />
+                     WidthRequest="300"
+                    HeightRequest="200"
+                    VerticalOptions="StartAndExpand"/>
                   
                     <Image x:Name="Imgcanobaixo"
                     Source="canodiferente.png"
-                    WidthRequest="100"
-                    HeightRequest="100"
+                    WidthRequest="300"
+                    HeightRequest="200"
                     HorizontalOptions="End"
-                    VerticalOptions="End" />
+                    VerticalOptions="End"/>
                    
                     <Image  x:Name="ImgChao"
                      Source="chao.jpg"
@@ -38,7 +38,7 @@
 
                       <Frame x:Name="GameOverFrame"
                          IsVisible="false"
-                         BackgroundColor="Black" >
+                         BackgroundColor="Black">
                          <Grid>
                         
                          <Label x:Name="GameOver"
@@ -64,6 +64,11 @@
                               HorizontalOptions="Start"
                               VerticalOptions="Fill"
                               BackgroundColor="Black"/>
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FloatBird"/>
+                                </Grid.GestureRecognizers>
+
                           </Grid>
                       </Frame>
              </Grid>
