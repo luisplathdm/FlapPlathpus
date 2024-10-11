@@ -84,6 +84,12 @@ public partial class MainPage : ContentPage
 	}
 
 //---------------------------------------------------------------------------------------//
+	void OnToGoHomeClicked(object sender, EventArgs e)
+    {
+		Application.Current.MainPage = new StartPage();
+	}
+	
+//---------------------------------------------------------------------------------------//
 
     void Initialize()
 	{

@@ -8,5 +8,10 @@ public partial class StartPage : ContentPage
     }
 
 
+  void OnToGoToGameClicked(object sender, EventArgs e)
+    {
+		Application.Current.MainPage = new MainPage();
+	}
 }
+
 

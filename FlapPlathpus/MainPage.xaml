@@ -68,17 +68,21 @@
                               VerticalOptions="Center"
                               HeightRequest="100"
                               WidthRequest="130"
-                              BackgroundColor="Black"/>
-                          <Button x:Name="tA"
-                              Text="RETRY"
+                              BackgroundColor="Black"/> -->
+                         
+                          <Button x:Name="ToGoHome"
+                              Clicked="OnToGoHomeClicked"
+                              Text="HOME"
+                              TextColor="white"
                               FontFamily="Pixeled"
+                              BorderWidth="2"
+                              BorderColor="White"
                               HeightRequest="100"
-                              WidthRequest="130"
-                              HorizontalOptions="Start"
-                              VerticalOptions="Fill"
-                              BackgroundColor="Black"/> 
+                              HorizontalOptions="Fill"
+                              VerticalOptions="End"
+                              BackgroundColor="#ebb41e"/> 
 
-                                <Grid.GestureRecognizers>
+                              <!--        <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="FloatBird"/>
                                 </Grid.GestureRecognizers> -->
 
