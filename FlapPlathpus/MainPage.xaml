@@ -19,7 +19,6 @@
                    
                     <Image x:Name="Imgcanocima"
                     Source="canoprabaixo.png"
-                    HorizontalOptions="End"
                      WidthRequest="300"
                     HeightRequest="200"
                     VerticalOptions="StartAndExpand"/>
@@ -28,7 +27,6 @@
                     Source="canodiferente.png"
                     WidthRequest="300"
                     HeightRequest="200"
-                    HorizontalOptions="End"
                     VerticalOptions="End"/>
                    
                     <Image  x:Name="ImgChao"
@@ -81,11 +79,12 @@
                               VerticalOptions="End"
                               BackgroundColor="#ebb41e"/> 
 
-                                      <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="ClickedFloatBird"/>
-                                </Grid.GestureRecognizers>
+                                     
 
                           </Grid>
                       </Frame>
+                       <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ClickedFloatBird"/>
+                                </Grid.GestureRecognizers>
              </Grid>
 </ContentPage>

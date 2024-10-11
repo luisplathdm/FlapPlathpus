@@ -3,10 +3,10 @@
 namespace FlapPlathpus;
 public partial class MainPage : ContentPage
 {
-	const int gravity = 20; 
+	const int gravity = 7; 
 	// a gravidade que vai ser aplicada no objeto
 
-	const int TimeToFrame = 1000; 
+	const int TimeToFrame = 33; 
 	//tempo de espera dos frames ou fps
     
 	bool isDead = true; 
@@ -18,10 +18,12 @@ public partial class MainPage : ContentPage
 	double windowWidth = 0;
 	// è a espessura da janela que vai aparecer
 
-	int Fasty = 30; //60 fps
+	int Fasty = 5; //60 fps
 	// velocidade de movimento do cano
 
 	bool GameStarded = false; 
+	// aqui eu crie essa variavel pra dizer quando o jogo começou 
+	// e fazer com que certos metodos funcionem melhor como o pulo 
 
 
 //---------------------------------------------------------------------------------------//
@@ -56,9 +58,9 @@ public partial class MainPage : ContentPage
 	async void IntroGravity()
 	{
 		Imgperry.TranslationY += gravity; 
-		if (Imgperry.TranslationY >=- windowHeigth)
+		if (Imgperry.TranslationY >= windowHeigth)
 		{
-			Imgperry.TranslationX =30;
+			Imgperry.TranslationX = windowHeigth;
 		}
 		// translation é a transiçao do eixo Y ou x no caso 
 		//como aumenta é oque vai fazer o pasarinho cair                                     
@@ -72,7 +74,7 @@ public partial class MainPage : ContentPage
 	  (GameStarded) // essa condicional vai fazer com que só funcione 
 	  {             // o botão quando a gframe game over for clicada
 	  
-	  Imgperry.TranslationY -= 30; //Imgperry é o nome que eu coloquei no x name do passarinho
+	  Imgperry.TranslationY -= 50; //Imgperry é o nome que eu coloquei no x name do passarinho
 	                               // por enquanto é o pulo do passsaro
 	  }
 	}
@@ -122,12 +124,12 @@ public partial class MainPage : ContentPage
 		// para a esquerda da janela 
 		
 		if 
-		 (Imgcanobaixo.TranslationX<=-windowWidth)
+		 (Imgcanobaixo.TranslationX <= -Imgcanobaixo.Width)
 		 // aqui é quando a tela acaba entã é redefinido a posiçaõ
 		 // fazendo o cano voltar no ponto X e refazer o processo
 		{
-			Imgcanobaixo.TranslationX = 0;
-			Imgcanocima.TranslationX = 0;
+			Imgcanobaixo.TranslationX = windowWidth; 
+            Imgcanocima.TranslationX = windowWidth; 
 			// aqui são as imagens com o atributo zerado
 		}
 	}
