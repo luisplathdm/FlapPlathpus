@@ -21,6 +21,8 @@ public partial class MainPage : ContentPage
 	int Fasty = 30; //60 fps
 	// velocidade de movimento do cano
 
+	bool GameStarded = false; 
+
 
 //---------------------------------------------------------------------------------------//
 	
@@ -64,15 +66,23 @@ public partial class MainPage : ContentPage
 
 //---------------------------------------------------------------------------------------//
     
-				void FloatBird()
-				{
-					Imgperry.TranslationY -= 30; 
-				}
-
-			    private void ClickedFloatBird(object sender, EventArgs e)
-				{
-                FloatBird();
-				}
+	void FloatBird()
+	{
+	  if 
+	  (GameStarded) // essa condicional vai fazer com que só funcione 
+	  {             // o botão quando a gframe game over for clicada
+	  
+	  Imgperry.TranslationY -= 30; //Imgperry é o nome que eu coloquei no x name do passarinho
+	                               // por enquanto é o pulo do passsaro
+	  }
+	}
+//---------------------------------------------------------------------------------------
+    private void ClickedFloatBird(object sender, EventArgs e)
+	{
+      FloatBird();
+	  // aqui a gente tá chamando o void float bird que faz
+	  // a gravidade do passarinho diminuir ou ele pular 
+	}
 
 //---------------------------------------------------------------------------------------//
 	void OnGameOverClicked (object sender, EventArgs e)
@@ -80,12 +90,17 @@ public partial class MainPage : ContentPage
      GameOverFrame.IsVisible = false;
 	 Initialize();
 	 Drawn();
+	 GameStarded = true; // aqui quando clicar no frame ele vai definir 
+	                     // o jogo como começando oque possiblta ativar o pulo e clicked do passaro
 	}
 
 //---------------------------------------------------------------------------------------//
 	void OnToGoHomeClicked(object sender, EventArgs e)
     {
 		Application.Current.MainPage = new StartPage();
+		
+		GameStarded = false; // como ele volta pra tela de inicio
+		                    // então o jogo não pode estar rodando
 	}
 	
 //---------------------------------------------------------------------------------------//
@@ -94,6 +109,7 @@ public partial class MainPage : ContentPage
 	{
 		isDead = false;
 		Imgperry.TranslationY = 0;
+		GameStarded = true; // qaundo o jogo reinicia ele é ativado como verdadeiro
 	}
 
 //---------------------------------------------------------------------------------------//
