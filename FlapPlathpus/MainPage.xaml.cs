@@ -3,10 +3,10 @@
 namespace FlapPlathpus;
 public partial class MainPage : ContentPage
 {
-	const int gravity = 10; 
+	const int gravity = 20; 
 	// a gravidade que vai ser aplicada no objeto
 
-	const int TimeToFrame = 2000; 
+	const int TimeToFrame = 1000; 
 	//tempo de espera dos frames ou fps
     
 	bool isDead = true; 
@@ -28,7 +28,6 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent(); 
 	}
-
 
 //---------------------------------------------------------------------------------------//
     async Task Drawn()
@@ -55,25 +54,25 @@ public partial class MainPage : ContentPage
 	async void IntroGravity()
 	{
 		Imgperry.TranslationY += gravity; 
-	//	if (Imgperry >= windowHeigth)
-		//{
-		//	Imgperry.TranslationX =30;
-		//}
+		if (Imgperry.TranslationY >=- windowHeigth)
+		{
+			Imgperry.TranslationX =30;
+		}
 		// translation é a transiçao do eixo Y ou x no caso 
 		//como aumenta é oque vai fazer o pasarinho cair                                     
 	}
 
 //---------------------------------------------------------------------------------------//
     
-				//void FloatBird()
-				//{
-				//	Imgperry.TranslationY -= 100; 
-				//}
+				void FloatBird()
+				{
+					Imgperry.TranslationY -= 30; 
+				}
 
-			   // private void ClickedFloatBird(object sender, EventArgs e)
-				//{
-                //FloatBird();
-				//}
+			    private void ClickedFloatBird(object sender, EventArgs e)
+				{
+                FloatBird();
+				}
 
 //---------------------------------------------------------------------------------------//
 	void OnGameOverClicked (object sender, EventArgs e)

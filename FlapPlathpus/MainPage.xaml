@@ -37,20 +37,19 @@
                      VerticalOptions="End"/>
 
                       <Frame x:Name="GameOverFrame"
-                         IsVisible="true"
                          BackgroundColor="#99000000"
                          HorizontalOptions="Fill"
                          VerticalOptions="Fill">
-                           
-                            <Frame.GestureRecognizers>
+
+                           <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnGameOverClicked"/>
                             </Frame.GestureRecognizers>
+                           
                         
                         <Grid>
                          <Image x:Name="TapStart"
                          Source="tap.png"
-                         HeightRequest="150"
-                         />
+                         HeightRequest="150"/>
 
                         
                       <!--      <Label x:Name="GameOver"
@@ -82,9 +81,9 @@
                               VerticalOptions="End"
                               BackgroundColor="#ebb41e"/> 
 
-                              <!--        <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="FloatBird"/>
-                                </Grid.GestureRecognizers> -->
+                                      <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ClickedFloatBird"/>
+                                </Grid.GestureRecognizers>
 
                           </Grid>
                       </Frame>
