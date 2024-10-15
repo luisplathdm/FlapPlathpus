@@ -5,52 +5,52 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#028bbf">
 
-             <Grid>
-                  <Image x:Name="Imgfundo"
-                    Source="fundo.png"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="Fill"/>
+    <Grid>
+        <Image x:Name="Imgfundo"
+               Source="fundo.png"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill"/>
 
-                    <Image x:Name="Imgperry"
-                    Source="passaro.png"
-                    HeightRequest="50"
-                    WidthRequest="50"
-                    HorizontalOptions="Start"/>
-                   
-                    <Image x:Name="Imgcanocima"
-                    Source="canoprabaixo.png"
-                     WidthRequest="300"
-                    HeightRequest="200"
-                    VerticalOptions="StartAndExpand"/>
-                  
-                    <Image x:Name="Imgcanobaixo"
-                    Source="canodiferente.png"
-                    WidthRequest="300"
-                    HeightRequest="200"
-                    VerticalOptions="End"/>
-                   
-                    <Image  x:Name="ImgChao"
-                     Source="chao.jpg"
-                     HorizontalOptions="Fill"
-                     VerticalOptions="End"/>
+        <Image x:Name="Imgperry"
+               Source="passaro.png"
+               HeightRequest="50"
+               WidthRequest="50"
+               HorizontalOptions="Start"/>
 
-                      <Frame x:Name="GameOverFrame"
-                         BackgroundColor="#99000000"
-                         HorizontalOptions="Fill"
-                         VerticalOptions="Fill">
+        <Image x:Name="Imgcanocima"
+               Source="canoprabaixo.png"
+               WidthRequest="300"
+               HeightRequest="200"
+               VerticalOptions="StartAndExpand"/>
 
-                           <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnGameOverClicked"/>
-                            </Frame.GestureRecognizers>
-                           
-                        
-                        <Grid>
-                         <Image x:Name="TapStart"
-                         Source="tap.png"
-                         HeightRequest="150"/>
+        <Image x:Name="Imgcanobaixo"
+               Source="canodiferente.png"
+               WidthRequest="300"
+               HeightRequest="200"
+               VerticalOptions="End"/>
 
-                        
-                      <!--      <Label x:Name="GameOver"
+        <Image  x:Name="ImgChao"
+                Source="chao.jpg"
+                HorizontalOptions="Fill"
+                VerticalOptions="End"/>
+
+        <Frame x:Name="GameOverFrame"
+               BackgroundColor="#99000000"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+            </Frame.GestureRecognizers>
+
+
+            <Grid>
+                <Image x:Name="TapStart"
+                       Source="tap.png"
+                       HeightRequest="150"/>
+
+
+                <!--      <Label x:Name="GameOver"
                          Text="GAME OVER"
                          FontFamily="Pixeled"
                          HeightRequest="300"
@@ -66,25 +66,25 @@
                               HeightRequest="100"
                               WidthRequest="130"
                               BackgroundColor="Black"/> -->
-                         
-                          <Button x:Name="ToGoHome"
-                              Clicked="OnToGoHomeClicked"
-                              Text="HOME"
-                              TextColor="white"
-                              FontFamily="Pixeled"
-                              BorderWidth="2"
-                              BorderColor="White"
-                              HeightRequest="100"
-                              HorizontalOptions="Fill"
-                              VerticalOptions="End"
-                              BackgroundColor="#ebb41e"/> 
 
-                                     
+                <Button x:Name="ToGoHome"
+                        Clicked="OnToGoHomeClicked"
+                        Text="HOME"
+                        TextColor="white"
+                        FontFamily="Pixeled"
+                        BorderWidth="2"
+                        BorderColor="White"
+                        HeightRequest="100"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="End"
+                        BackgroundColor="#ebb41e"/>
 
-                          </Grid>
-                      </Frame>
-                       <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="ClickedFloatBird"/>
-                                </Grid.GestureRecognizers>
-             </Grid>
+
+
+            </Grid>
+        </Frame>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ClickedFloatBird"/>
+        </Grid.GestureRecognizers>
+    </Grid>
 </ContentPage>
