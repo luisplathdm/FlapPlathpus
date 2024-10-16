@@ -35,10 +35,13 @@ public partial class MainPage : ContentPage
 	bool IsFloating = false;
 	// é pra dizer se esse negocio tá pulando ou não
 
-	const int PowerFloating = 50;
+	const int PowerFloating = 30;
 	//é o tanto que vai pular porque o meu tava melhor mais 
 	// o tiagão falou que estava errado e eu como um bom aluno só estou
 	// fazendo para provar que o meu dava no mesmo
+
+	const int MaxDuna = 200;
+	// é a abertura entre os canos onde o passaro passa
 
 	//---------------------------------------------------------------------------------------//
 
@@ -52,13 +55,12 @@ public partial class MainPage : ContentPage
 	{
 		while (!isDead)
 		// !=não, enquanto não está morto aplica gravidade
-
 		{
 			if (IsFloating)
 				FloatBird();
 			else
 
-				IntroGravity();
+			IntroGravity();
 			//Aqui é a gravidade que a gente atribuiu lá em cima
 			// que vai ser aplicada no passaro
 
@@ -140,6 +142,14 @@ public partial class MainPage : ContentPage
 	}
 
 	//---------------------------------------------------------------------------------------//
+    void GameOver()
+	{
+		if (isDead)
+		{
+			GameStarded = false;
+		}
+	}
+	//---------------------------------------------------------------------------------------//
 	bool IsColliding()
 	{
 		if (!isDead)
@@ -147,21 +157,27 @@ public partial class MainPage : ContentPage
 			// Verifica se os elementos são válidos
 			if (IsCollidingSky() ||
 			IsCollidingHell())
+			// aqui diz se colidir com o teto ||= ou com o chao
+			// então retorna o atributo declarado em baixo 
 			{
 				return GameStarded = false;
 			}
 		}
 		return GameStarded = true;
+		// aqui é o metodo que é chamado tanto para colidingSky
+		// quando colliding hell 
 	}
 	//---------------------------------------------------------------------------------------//
 
 	bool IsCollidingSky()
 	{
 		var minY = -windowHeigth / 2;
-		if (Imgperry.TranslationY <= minY)
+		if (Imgperry.TranslationY <= -minY)
 			return true;
 		else
 			return false;
+	// aui é o metodo quando a altura do passaro chega ou ultrpassa
+	// o ceu ou teto do jogo oque faz ele hamar Is coliding
 	}
 	//---------------------------------------------------------------------------------------//
 
@@ -172,17 +188,11 @@ public partial class MainPage : ContentPage
 			return true;
 		else
 			return false;
-	}
-
-	//---------------------------------------------------------------------------------------//
-	void GameOver()
-	{
-		// Exibir a tela de "Game Over"
-		GameOverFrame.IsVisible = true;
-
-		// Opcional: Parar o movimento do pássaro e dos canos
-		Imgperry.TranslationY = 0; // Fazer o pássaro "cair" no chão ou parar
-		Fasty = 0; // Parar o movimento dos canos
+	
+	// aqui a gente está criando o metodo toda vez que o passaro bater 
+	// no chao oque significa que quando ele chegar retorna true e então chama
+	// o metodo Is coloding
+	
 	}
 
 	//---------------------------------------------------------------------------------------//
@@ -190,8 +200,9 @@ public partial class MainPage : ContentPage
 	{
 		Application.Current.MainPage = new StartPage();
 
-		GameStarded = false; // como ele volta pra tela de inicio
-							 // então o jogo não pode estar rodando
+		GameStarded = false; 
+		// como ele volta pra tela de inicio
+		// então o jogo não pode estar rodando
 	}
 
 	//---------------------------------------------------------------------------------------//
@@ -200,7 +211,9 @@ public partial class MainPage : ContentPage
 	{
 		isDead = false;
 		Imgperry.TranslationY = 0;
-		GameStarded = true; // qaundo o jogo reinicia ele é ativado como verdadeiro
+		GameStarded = true; 
+		FloatBird();
+		// qaundo o jogo reinicia ele é ativado como verdadeiro
 	}
 
 	//---------------------------------------------------------------------------------------//
@@ -213,13 +226,20 @@ public partial class MainPage : ContentPage
 		// para a esquerda da janela 
 
 		if
-		 (Imgcanobaixo.TranslationX <= -Imgcanobaixo.Width)
+		 (Imgcanobaixo.TranslationX <= -windowWidth)
 		// aqui é quando a tela acaba entã é redefinido a posiçaõ
 		// fazendo o cano voltar no ponto X e refazer o processo
 		{
 			Imgcanobaixo.TranslationX = windowWidth;
 			Imgcanocima.TranslationX = windowWidth;
 			// aqui são as imagens com o atributo zerado
+			var maxHeigth =-100;
+			var minHeigth =-Imgcanobaixo.HeightRequest;
+			// aqui são as variaveis que determinar a altura ou espaço
+			// que o passaro pode passar alem de colocar o minimo
+			Imgcanocima.TranslationY = Random.Shared.Next((int)minHeigth, (int)maxHeigth);
+			Imgcanobaixo.TranslationY = Imgcanocima.TranslationY + MaxDuna + Imgcanobaixo.HeightRequest;
+			// aqui são as variaveis que determinam a aleotRIEDADE em que os cABNos vão aparecer
 		}
 	}
 
