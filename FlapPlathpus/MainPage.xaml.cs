@@ -43,6 +43,10 @@ public partial class MainPage : ContentPage
 	const int MaxDuna = 200;
 	// é a abertura entre os canos onde o passaro passa
 
+	int Score = 0;
+	// é a pomtuação que a pessoa ganha 
+	//por passar pelo cano
+
 	//---------------------------------------------------------------------------------------//
 
 	public MainPage()
@@ -123,7 +127,7 @@ public partial class MainPage : ContentPage
 		}
 	}
 	//---------------------------------------------------------------------------------------
-	private void ClickedFloatBird(object sender, EventArgs e)
+	private void ClickedFloatBird(object s, TappedEventArgs a)
 	{
 		FloatBird();
 		// aqui a gente tá chamando o void float bird que faz
@@ -131,7 +135,7 @@ public partial class MainPage : ContentPage
 	}
 
 	//---------------------------------------------------------------------------------------//
-	void OnGameOverClicked(object sender, EventArgs e)
+	void OnGameOverClicked(object s, TappedEventArgs a)
 	{
 		GameOverFrame.IsVisible = false;
 		Initialize();
