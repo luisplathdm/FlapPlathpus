@@ -6,30 +6,53 @@
              BackgroundColor="#028bbf">
 
     <Grid>
+
+     <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ClickedFloatBird"/>
+        </Grid.GestureRecognizers>
+
         <Image x:Name="Imgfundo"
                Source="fundo.png"
                HorizontalOptions="Fill"
                VerticalOptions="Fill"/>
 
+        <Label x:Name="LabelScore"
+               FontFamily="Pixeled"
+               FontSize="20" 
+               Margin="10,40,0,0"/>
+       
+        <Label x:Name="LabelFinalScore"
+               FontFamily="Pixeled"
+               FontSize="30"
+               TextColor="white"
+               IsVisible ="False"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"/>
+
         <Image x:Name="Imgperry"
                Source="passaro.png"
                HeightRequest="50"
                WidthRequest="50"
-               HorizontalOptions="Start"/>
+               BackgroundColor="Red"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
         <Image x:Name="Imgcanocima"
                Source="canoprabaixo.png"
                WidthRequest="300"
                HeightRequest="200"
-               VerticalOptions="StartAndExpand"/>
+               VerticalOptions="StartAndExpand"
+               BackgroundColor="Red"/>
 
         <Image x:Name="Imgcanobaixo"
                Source="canodiferente.png"
                WidthRequest="300"
                HeightRequest="200"
-               VerticalOptions="End"/>
+               VerticalOptions="End"
+               BackgroundColor="Red"/>
 
         <Image  x:Name="ImgChao"
+              IsVisible="False"
                 Source="chao.jpg"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"/>
@@ -83,8 +106,5 @@
 
             </Grid>
         </Frame>
-        <Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="ClickedFloatBird"/>
-        </Grid.GestureRecognizers>
     </Grid>
 </ContentPage>
