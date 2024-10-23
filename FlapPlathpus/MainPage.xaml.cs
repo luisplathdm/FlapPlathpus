@@ -3,7 +3,7 @@
 namespace FlapPlathpus;
 public partial class MainPage : ContentPage
 {
-	const int gravity = 7;
+	const int gravity = 1;
 	// a gravidade que vai ser aplicada no objeto
 
 	const int TimeToFrame = 33;
@@ -18,7 +18,7 @@ public partial class MainPage : ContentPage
 	double windowWidth = 0;
 	// è a espessura da janela que vai aparecer
 
-	int Fasty = 5;
+	int Fasty = 4;
 	//60 fps
 	// velocidade de movimento do cano
 
@@ -26,7 +26,7 @@ public partial class MainPage : ContentPage
 	// aqui eu crie essa variavel pra dizer quando o jogo começou 
 	// e fazer com que certos metodos funcionem melhor como o pulo 
 
-	const int MaxTimeFloating = 3;
+	const int MaxTimeFloating = 2;
 	//é o tempo que ele vai pular ate cair 
 
 	int TimeFloating = 0;
@@ -63,7 +63,6 @@ public partial class MainPage : ContentPage
 		Imgperry.TranslationX = 0;
 		Imgcanobaixo.TranslationX = -windowWidth;
 		Imgcanocima.TranslationX = -windowWidth;
-		Score = 0;
 		ManagerCan();
 		Drawn();
 	}
@@ -73,34 +72,38 @@ public partial class MainPage : ContentPage
 	{
 		while (!isDead)
 		// !=não, enquanto não está morto aplica gravidade
-		{
-			    if (IsFloating)
-				{	
-					FloatBird();
-				}
-				else
-                {
-					IntroGravity();
-					//Aqui é a gravidade que a gente atribuiu lá em cima
-					// que vai ser aplicada no passaro
+		{      
+			
+			    IntroGravity();
+				ManagerCan();
+					if (IsFloating)
+					{	
+						FloatBird();
+					}
+					else
+					{
+						IntroGravity();
+						//Aqui é a gravidade que a gente atribuiu lá em cima
+						// que vai ser aplicada no passaro
 
-					ManagerCan();
-					//Colocando que enquanto o passaro não morreu 
-					//aplica a move dos canos tambem
-				}
+						ManagerCan();
+						//Colocando que enquanto o passaro não morreu 
+						//aplica a move dos canos tambem
+					}
                 IntroGravity();
 				ManagerCan();
 				if (IsColliding())
-				{
-					isDead = true;
-                    GameOverFrame.IsVisible = true;
-				    LabelFinalScore.IsVisible = true;
+					{
+						isDead = true;
+						GameOverFrame.IsVisible = true;
+						LabelFinalScore.IsVisible = true;
+						GameStarded= false;
 
-					break;
-					// Aqui a gente diz que se ele colidir então o jogo 
-					// não começou oque significa que a frame aparece
+						break;
+						// Aqui a gente diz que se ele colidir então o jogo 
+						// não começou oque significa que a frame aparece
 
-				}
+					}
 
 			await Task.Delay(TimeToFrame);
 			// como esse é o tempo de espra entre os frames 
@@ -143,6 +146,7 @@ public partial class MainPage : ContentPage
 	//---------------------------------------------------------------------------------------//
 	void OnGameOverClicked(object s, TappedEventArgs a)
 	{
+		GameStarded= true;
 		GameOverFrame.IsVisible = false;
 		Score = 0;
 		Initialize();
@@ -152,23 +156,17 @@ public partial class MainPage : ContentPage
 
 	//---------------------------------------------------------------------------------------//
 		bool IsColliding()
-	{
+	    {
 		if (!isDead)
-		{
-			// Verifica se os elementos são válidos //
-			if (IsCollidingSky() ||
-				IsCollidingHell() ||
-				IsCollidingCanSky() ||
-				IsCollidingCanHell())
 			{
-				// Se colidir com o teto ou o chão, ou com um dos canos, retorna verdadeiro
-				return true;
+				if (IsCollidingSky() || IsCollidingHell()|| IsCollidingCanSky()||IsCollidingCanHell())
+				{
+					return true;
+				}
 			}
-		}
-
-		// Se não houver colisãocom nenhum cano  retorna false
-		return false;
-	}
+			return false;
+		
+	    }
 	
 	//---------------------------------------------------------------------------------------//
 
@@ -218,13 +216,12 @@ public partial class MainPage : ContentPage
 		bool IsCollidingCanHell()
 	{ 
 		var posHPerry = (windowWidth / 2) - (Imgperry.WidthRequest / 2);
-		var posVPerry = (windowHeigth / 2) - (Imgperry.HeightRequest / 2) + Imgperry.TranslationY;
-
-		// Verificar se o personagem está na mesma posição horizontal que o cano e se a altura do cano cobre o personagem
-		if (posHPerry >= Imgcanobaixo.TranslationX && 
-			posHPerry <= Imgcanobaixo.TranslationX + Imgcanobaixo.WidthRequest &&
-			posVPerry >= Imgcanobaixo.TranslationY && 
-			posVPerry <= Imgcanobaixo.TranslationY + Imgcanobaixo.HeightRequest)
+		var posVPerry = (windowHeigth / 2) + (Imgperry.HeightRequest / 2) + Imgperry.TranslationY;
+		var MaxCanY = Imgcanocima.HeightRequest + TranslationY + MaxDuna;
+		
+		if (posHPerry >=  Math.Abs (Imgcanobaixo.TranslationX) - Imgcanobaixo.WidthRequest && 
+			posHPerry <= Math.Abs (Imgcanobaixo.TranslationX) + Imgcanobaixo.WidthRequest &&
+			posVPerry >= MaxCanY)
 		{
 			return true;
 		}
@@ -259,8 +256,8 @@ public partial class MainPage : ContentPage
 		// fazendo o cano voltar no ponto X e refazer o processo
 		
 		{
-			Imgcanobaixo.TranslationX = windowWidth;
-            Imgcanocima.TranslationX = windowWidth;
+			Imgcanobaixo.TranslationX = 0;
+            Imgcanocima.TranslationX = 0;
 			// aqui antes eram as imagens com o atributo zerado
 			// agora eu coloquei um negocinho só para eles votarem da direita
 			
@@ -275,9 +272,12 @@ public partial class MainPage : ContentPage
 
 			Score++;
 			LabelScore.Text = "Canos: " + Score.ToString("D3");
-
-
 			LabelFinalScore.Text = "Final Score:" + Score.ToString("D3");
+			if(Score %2 == 0)
+			Fasty ++;
+			// aqui a gente atribui o valor que quando é passado cada cano conta mais um
+			// Label é que ele vai mostar esses valores 
+			// Score dividido por dois significa que a cada dois canos ele vai aumnetar a velocidade
 		}
 	}
 

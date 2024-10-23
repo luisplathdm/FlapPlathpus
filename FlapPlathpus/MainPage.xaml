@@ -39,23 +39,19 @@
 
         <Image x:Name="Imgcanocima"
                Source="canoprabaixo.png"
-               WidthRequest="300"
-               HeightRequest="200"
-               VerticalOptions="StartAndExpand"
+               WidthRequest="60"
+               HeightRequest="600"
+               VerticalOptions="Start"
+               HorizontalOptions="End"
                BackgroundColor="Red"/>
 
         <Image x:Name="Imgcanobaixo"
                Source="canodiferente.png"
-               WidthRequest="300"
-               HeightRequest="200"
+                WidthRequest="60"
+               HeightRequest="520"
                VerticalOptions="End"
+               HorizontalOptions="End"
                BackgroundColor="Red"/>
-
-        <Image  x:Name="ImgChao"
-              IsVisible="False"
-                Source="chao.jpg"
-                HorizontalOptions="Fill"
-                VerticalOptions="End"/>
 
         <Frame x:Name="GameOverFrame"
                BackgroundColor="#99000000"
